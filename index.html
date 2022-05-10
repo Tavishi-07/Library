@@ -6,228 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
+
 <body>
-    
     <header class="header">
-        <div class="header-container">
-            <h1 class="title">Library</h1>
-        </div>
-    </header>
-
-    <main class="main">
-        <button class="btn btn-green btn-large" id="addBookButton">Add Book</button>
-        <div class="books-grid" id="booksGrid"></div>
-    </main>
------------------------------------------------------------------------------------------------------
-
-<div class="container">
-    <section class="d-flex flex-wrap gap-3 justify-content-center"></section>
-  </div>
-
-  <!--modal-->
-  <div
-    class="modal fade"
-    id="modalBook"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header bg-light">
-          <h3
-            class="modal-title fw-bold text-info text-center"
-            id="exampleModalLabel"
-          >
-            Add a new book
-          </h3>
-          <button
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body text-dark">
-          <form class="form-body needs-validation" novalidate>
-            <div class="mb-3">
-              <label for="bookTitle" class="form-label">Book Title</label>
-              <input
-                type="text"
-                class="form-control"
-                id="bookTitle"
-                placeholder=""
-                required
-              />
-              <div id="formBookTitleValidation" class="invalid-feedback">
-                Book title is required.
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="bookAuthor" class="form-label">Book Author</label>
-              <input
-                type="text"
-                class="form-control"
-                id="bookAuthor"
-                placeholder=""
-                required
-              />
-              <div id="formBookAuthorValidation" class="invalid-feedback">
-                Book author is required.
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="bookPages" class="form-label">Book Pages</label>
-              <input
-                type="number"
-                min="1"
-                class="form-control"
-                id="bookPages"
-                placeholder=""
-                required
-              />
-              <div id="formBookPagesValidation" class="invalid-feedback">
-                Book Pages is required or greater than 0.
-              </div>
-            </div>
-            <div class="mb-3">
-              <label for="BookLanguage" class="form-label"
-                >Book Language</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="BookLanguage"
-                required
-                placeholder=""
-              />
-              <div id="formBookLanguageValidation" class="invalid-feedback">
-                Book language is required.
-              </div>
-            </div>
-            <div class="mb-4">
-              <label for="bookPublishDate" class="form-label"
-                >Book Publish Date</label
-              >
-              <input
-                type="date"
-                class="form-control"
-                id="bookPublishDate"
-                required
-                placeholder=""
-              />
-              <div
-                id="formBookPublishDateValidation"
-                class="invalid-feedback"
-              >
-                Book Publish Date is required.
-              </div>
-            </div>
-            <div class="form-check form-switch mb-4">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="bookStatus"
-              />
-              <label class="form-check-label" for="bookStatus"
-                >Read or not?</label
-              >
-            </div>
-            <div class="modal-footer text-dark">
-              <div>
-                <button
-                  id="addBook"
-                  type="submit"
-                  class="btn btn-primary text-light"
-                >
-                  Add
-                </button>
-                <a
-                  class="btn btn-warning text-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Cancel
-                </a>
-              </div>
-            </div>
-          </form>
-        </div>
+      <div class="container">
+        <h1>LIBRARY</h1>
+        <nav>
+          <button id="accountBtn"></button>
+        </nav>
       </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
----------------------------------------------------------------------------------------------------------------
+    </header>
+    <main class="main container">
+      <button class="btn btn-add" id="addBookBtn">+ Add book</button>
+      <div class="books-grid" id="booksGrid"></div>
+    </main>
+  
     <div class="modal" id="addBookModal">
-        <form class="add-book-form" id="addBookForm">
-            <h3 class="big-title">Add New Book </h3>
-            <input class="input" type="text" id="title" placeholder="Title" required />
-            <p class="error-msg" id="errorMsg"></p>
-            <input class="input" type="text" id="author" placeholder="Author" required />
-            <p></p>
-            <input class="input" type="number" id="pages" placeholder="Pages" required />
-            <div class="is-read">
-                <label for="is-read">Have you read it? </label>
-                <input class="checkbox" type="checkbox" id="isRead" />
-            </div>
-            <button class="btn btn-green btn-medium" type="submit">Submit</button>
-        </form>
+      <form class="add-book-form" id="addBookForm">
+        <h3>Add new book</h3>
+        <input
+          class="input"
+          type="text"
+          id="title"
+          placeholder="Title"
+          required
+          maxlength="100"
+        />
+        <p class="error-msg" id="errorMsg"></p>
+        <input
+          class="input"
+          type="text"
+          id="author"
+          placeholder="Author"
+          required
+          maxlength="100"
+        />
+        <input
+          class="input"
+          type="number"
+          id="pages"
+          placeholder="Pages"
+          required
+          max="10000"
+        />
+        <div class="is-read">
+          <label for="is-read">Have you read it?</label>
+          <input class="checkbox" type="checkbox" id="isRead" />
+        </div>
+        <button class="btn btn-light-blue" type="submit">Submit</button>
+      </form>
     </div>
     <div class="modal" id="accountModal"></div>
     <div class="overlay" id="overlay"></div>
-<!--
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyCV4z8kTygvsZn7oc0eWly7E1L_h_NvbMU",
-          authDomain: "library-f4f2d.firebaseapp.com",
-          projectId: "library-f4f2d",
-          storageBucket: "library-f4f2d.appspot.com",
-          messagingSenderId: "8302000065",
-          appId: "1:8302000065:web:b92894233ee8ad853ce140",
-          measurementId: "G-M0FB242LQV"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
 
-    -->
-
-
-
-
-
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: 'AIzaSyBv30hELJ-tYN-kLoFFsWmD9az7TNqMNec',
+        authDomain: 'library-ba067.firebaseapp.com',
+        projectId: 'library-ba067',
+        storageBucket: 'library-ba067.appspot.com',
+        messagingSenderId: '915404085981',
+        appId: '1:915404085981:web:c5a384ca4340b4b7e39934',
+      }
+      firebase.initializeApp(firebaseConfig)
+    </script>
 
 <div class="footer">
-    <p>Copyright &#169 2021 TavishiSehrawat</p>
+    <p>Copyright &#169 2022 TavishiSehrawat</p>
 </div>
 
-<!--
-    <script src="script.js"></script>
--->
-
-</body>
+  </body>
 </html>
